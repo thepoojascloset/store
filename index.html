@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover kurta sets and co-ord sets from The Pooja's Closet in Pune, Maharashtra. Local delivery and WhatsApp ordering.">
+  <meta name="theme-color" content="#FAF8F4">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Pooja's Closet | Pune Collection">
+  <meta property="og:description" content="Discover kurta sets and co-ord sets from The Pooja's Closet in Pune, Maharashtra. Local delivery and WhatsApp ordering.">
+  <title>The Pooja's Closet | Pune Collection</title>
+  <link rel="stylesheet" href="styles.css?v=50">
+  <script src="config.js" defer></script>
+  <script src="app.js?v=51" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="The Pooja's Closet home"><span class="brand-mark">P</span><span id="store-name">The Pooja's Closet</span></a>
+    <div class="header-actions">
+      <a class="cart-link" href="#cart" aria-label="Go to bag, 0 items"><svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="cart-icon-body" d="M5 8h14l1 13H4L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span id="cart-count" class="cart-count" aria-hidden="true">0</span></a>
+      <button id="open-order-history" class="header-history-button" type="button" aria-label="View order history" title="Order history"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11a9 9 0 1 1 2.6 6.4L3 14.8"/><path d="M3 7v5h5"/><path d="M12 7v5l3 2"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">New festive edit</p>
+      <h1 id="page-title">Dress beautifully.</h1>
+      <p class="intro-copy">Explore elegant kurta sets and effortless co-ord sets for every celebration.</p>
+    </section>
+
+    <div id="notice" class="notice" role="status" hidden></div>
+
+    <section class="catalog-section" aria-labelledby="catalog-heading">
+      <div class="catalog-controls">
+      <div class="category-filters" aria-label="Shop by collection">
+        <button class="category-pill" type="button" data-category="Kurta Set" aria-pressed="false">Kurta Sets</button>
+        <button class="category-pill" type="button" data-category="Co-Ord Set" aria-pressed="false">Co-Ord Sets</button>
+      </div>
+      <div class="section-heading">
+        <div><p class="eyebrow">The collection</p><h2 id="catalog-heading">All styles</h2></div>
+        <span id="product-count" class="product-count">0 items</span>
+      </div>
+
+      <div class="filters" aria-label="Product filters">
+        <fieldset class="filter-group" hidden>
+          <legend>Color</legend>
+          <div id="color-filter" class="filter-pills" aria-label="Filter by color"></div>
+        </fieldset>
+        <fieldset class="filter-group size-filter-group">
+          <legend>Size</legend>
+          <div id="size-filter" class="size-pills" aria-label="Filter by size"></div>
+        </fieldset>
+        <label class="search-control"><span class="visually-hidden">Search products</span><input id="search" type="search" placeholder="Search" autocomplete="off"></label>
+      </div>
+      </div>
+
+      <div id="products" class="product-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>No products found. Try another filter.</div>
+    </section>
+
+    <section id="cart" class="cart-section" aria-labelledby="cart-heading">
+      <div class="section-heading cart-heading"><div><p class="eyebrow">Almost yours</p><h2 id="cart-heading">Your bag</h2></div><button id="clear-cart" class="text-button" type="button" hidden>Clear bag</button></div>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="cart-empty" class="cart-empty">Your bag is empty. Add a few favorites above.</div>
+      <p id="cart-policy-empty" class="cart-policy-empty"><button id="open-policies-cart-empty" class="policy-link" type="button">Before you order · Delivery & policies</button></p>
+      <div id="cart-summary" class="cart-summary" hidden>
+        <fieldset class="fulfillment-options">
+          <legend>How would you like to receive your order?</legend>
+          <label><input type="radio" name="fulfillment" value="Self pickup" checked> Self pickup</label>
+          <label><input type="radio" name="fulfillment" value="Delivery"> Delivery</label>
+        </fieldset>
+        <div id="delivery-area-wrap" class="delivery-area-wrap" hidden>
+          <label for="delivery-area">Delivery area</label>
+          <select id="delivery-area">
+            <option value="">Select an area</option>
+            <option>Keshav Nagar, Mundhwa</option>
+            <option>Magarpatta City, Hadapsar</option>
+            <option>Amanora Park Town, Hadapsar</option>
+            <option>Kharadi</option>
+          </select>
+          <p id="delivery-area-error" class="field-error" role="alert" hidden>Please select your delivery area.</p>
+        </div>
+        <p class="checkout-note">
+          <span id="delivery-charge-note" hidden>Delivery charges are separate and will be discussed on WhatsApp.</span>
+          Availability is confirmed on WhatsApp only.
+          <button id="open-policies-cart" class="policy-link" type="button">Delivery & policies</button>
+        </p>
+        <div class="total-row"><span>Estimated total</span><strong id="cart-total"></strong></div>
+      </div>
+    </section>
+
+    <section id="order-history" class="history-section" aria-labelledby="order-history-heading">
+      <div class="section-heading history-heading">
+        <div><p class="eyebrow">Last seven days</p><h2 id="order-history-heading">Order history</h2></div>
+        <button id="clear-order-history" class="text-button" type="button" hidden>Clear history</button>
+      </div>
+      <div id="order-history-empty" class="cart-empty">No recent checkouts.</div>
+      <div id="order-history-list" class="order-history-list"></div>
+    </section>
+
+    <dialog id="policies-dialog" class="policies-dialog" aria-labelledby="policies-heading">
+      <div class="policies-header">
+        <div><p class="eyebrow">Before you order</p><h2 id="policies-heading">Delivery & policies</h2></div>
+        <button id="close-policies" class="policies-close" type="button" aria-label="Close delivery and policies">&times;</button>
+      </div>
+      <div class="policies-body">
+      <div class="policy-grid">
+        <article class="policy-item">
+          <h3>Delivery</h3>
+          <p>Based at Venkatesh Graffiti, Keshav Nagar, Mundhwa, Pune, Maharashtra. Local delivery is available in Keshav Nagar, Mundhwa; Magarpatta City, Hadapsar; Amanora Park Town, Hadapsar; and Kharadi. Delivery charges are actual and separate, and delivery details are confirmed on WhatsApp. Self-pickup is also possible.</p>
+        </article>
+        <article class="policy-item">
+          <h3>Availability</h3>
+          <p>Items shown on this website are subject to confirmation. Product availability is confirmed on WhatsApp only.</p>
+        </article>
+        <article class="policy-item">
+          <h3>Exchange, returns & cancellation</h3>
+          <p>Exchange, return and cancellation requests must be discussed on WhatsApp. Exchanges are available only against other available items, subject to availability; an exact item exchange cannot be guaranteed.</p>
+        </article>
+        <article class="policy-item">
+          <h3>Privacy & website notice</h3>
+          <p>Your bag and recent WhatsApp checkouts are stored only in this browser; checkout history is kept for seven days. The website cannot confirm whether a WhatsApp message was sent or an order accepted. Product colors and appearances may vary by screen or viewing conditions. Availability, delivery charges and final terms are confirmed on WhatsApp only.</p>
+        </article>
+      </div>
+
+      <div class="faq-list">
+        <details><summary>How do I place an order?</summary><p>Add items to your bag and select Place order to send the order details on WhatsApp. We will confirm availability and next steps there.</p></details>
+        <details><summary>Can I collect my order?</summary><p>Yes. Select Self pickup in the bag. Pickup details can be discussed on WhatsApp.</p></details>
+        <details><summary>How are delivery charges calculated?</summary><p>Delivery charges are separate and based on the actual charge for the order. Confirm the final amount on WhatsApp before placing or paying for the order.</p></details>
+        <details><summary>Can I exchange a purchased item?</summary><p>Exchange requests are discussed individually on WhatsApp. Exchanges are offered only for other available items, not a guaranteed exchange for the exact item.</p></details>
+      </div>
+      </div>
+    </dialog>
+  </main>
+
+  <dialog id="image-viewer" class="image-viewer" aria-labelledby="viewer-title">
+    <div class="viewer-header">
+      <h2 id="viewer-title">Product image</h2>
+      <button id="viewer-close" class="viewer-close" type="button" aria-label="Close image viewer">&times;</button>
+    </div>
+    <div id="viewer-stage" class="viewer-stage">
+      <img id="viewer-image" class="viewer-image" alt="">
+    </div>
+    <div class="viewer-controls">
+      <button id="viewer-prev" class="viewer-nav" type="button" aria-label="Previous image">&larr;</button>
+      <button id="viewer-zoom-out" class="viewer-zoom-button" type="button" aria-label="Zoom out">&minus;</button>
+      <span id="viewer-zoom-label" class="viewer-zoom-label">100%</span>
+      <button id="viewer-zoom-in" class="viewer-zoom-button" type="button" aria-label="Zoom in">+</button>
+      <button id="viewer-next" class="viewer-nav" type="button" aria-label="Next image">&rarr;</button>
+    </div>
+  </dialog>
+
+  <div class="cart-dock" aria-label="Order summary">
+    <button id="dock-bag" class="dock-bag" type="button" aria-label="Scroll to your bag"><span id="dock-count" class="dock-label">Your bag · 0 items</span><strong id="dock-total">₹0</strong></button>
+    <button id="checkout" class="checkout-button" type="button"><span class="checkout-label">Place order</span><svg class="whatsapp-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="whatsapp-bubble" d="M20.5 3.5A10 10 0 0 0 4 17.2L3 21l3.9-1A10 10 0 1 0 20.5 3.5Z"/><path class="whatsapp-phone" d="M8.1 7.3c.3-.7.6-.7.9-.7h.7c.2 0 .5.1.6.5l1 2.3c.1.3.1.5-.1.7l-.7.9c-.2.2-.1.4.1.7.7 1.2 1.7 2.2 2.9 2.9.3.2.5.2.7-.1l.9-1.1c.2-.2.4-.3.7-.2l2.2 1c.3.1.5.3.5.5.1.4 0 1.1-.2 1.5-.4.8-1.3 1.4-2.2 1.5-1.1.1-2.5-.3-4.7-1.5-2.7-1.5-4.5-4.1-5.1-5.4-.7-1.6-.5-2.7.1-3.5Z"/></svg></button>
+  </div>
+
+  <footer>
+    <div><strong id="footer-store-name">The Pooja's Closet</strong><span>Venkatesh Graffiti, Keshav Nagar, Mundhwa, Pune, Maharashtra</span></div>
+  </footer>
+</body>
+</html>
