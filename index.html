@@ -10,6 +10,22 @@
   <meta property="og:description" content="Discover kurta sets and co-ord sets from The Pooja's Closet in Pune, Maharashtra. Local delivery and WhatsApp ordering.">
   <title>The Pooja's Closet | Pune Collection</title>
   <link rel="stylesheet" href="styles.css?v=50">
+  <script>
+    if (new URLSearchParams(window.location.search).get('me') === 'true') {
+      localStorage.setItem('ignore_me', '1');
+    }
+
+    if (localStorage.getItem('ignore_me') !== '1') {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      const gtmScript = document.createElement('script');
+      gtmScript.async = true;
+      gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KTGMX53Z';
+      document.head.appendChild(gtmScript);
+    }
+  </script>
   <script src="config.js" defer></script>
   <script src="app.js?v=51" defer></script>
 </head>
